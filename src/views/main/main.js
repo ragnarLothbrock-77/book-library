@@ -56,6 +56,10 @@ export class MainView extends AbstarctView {
   render() {
     const main = document.createElement('div');
     main.append(new Search(this.state).render())
+    const countOfFoundedBooks = document.createElement('h1');
+    countOfFoundedBooks.classList.add('list__count');
+    countOfFoundedBooks.innerHTML = `Found ${this.state.numFound} books`;
+    main.append(countOfFoundedBooks)
     main.append(new CardList(this.appState, this.state).render())
     this.app.innerHTML = '';
     this.app.append(main);

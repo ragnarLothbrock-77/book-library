@@ -20,10 +20,6 @@ export class CardList extends DivComponent {
       return this.el;
     }
 
-    this.el.innerHTML = `
-      <h1 class="list__count"> Found ${this.parentState.numFound} books </h1>
-    `
-
     const cardGrid = document.createElement('div');
     cardGrid.classList.add('card-grid');
     this.el.append(cardGrid);
