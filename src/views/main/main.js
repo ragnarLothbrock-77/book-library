@@ -1,5 +1,7 @@
-import { AbstarctView } from '../../common/view.js';
+import { AbstarctView } from '../../core/view.js';
 import onChange from 'on-change';
+import { Header } from '../../components/header/header.js';
+import { Search } from '../../components/search/search.js';
 
 // eslint-disable-next-line no-unused-vars
 export class MainView extends AbstarctView {
@@ -24,10 +26,15 @@ export class MainView extends AbstarctView {
   }
 
   render() {
-    const content = document.createElement('div');
-    content.textContent = `Amount of books: ${this.appState.favorites.length}`
+    const main = document.createElement('div');
+    main.append(new Search(this.state).render())
     this.app.innerHTML = '';
-    this.app.append(content);
-    this.appState.favorites.push('Logan')
+    this.app.append(main);
+    this.renderHeader();
+  }
+
+  renderHeader() {
+    const header = new Header(this.appState).render();
+    this.app.prepend(header);
   }
 }
