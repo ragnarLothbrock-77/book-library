@@ -3,13 +3,20 @@
   "version": "1.0.0",
   "description": "",
   "main": "app.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup"
+    "start": "live-server",
+    "build": "rollup -c --watch"
   },
   "author": "Simon Berman",
   "license": "ISC",
+  "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "eslint": "^8.54.0",
+    "rollup": "^4.5.0",
+    "rollup-plugin-import-css": "^3.3.5"
+  },
   "dependencies": {
-    "rollup": "^4.5.0"
+    "on-change": "^4.0.2"
   }
 }
